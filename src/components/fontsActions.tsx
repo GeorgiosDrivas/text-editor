@@ -1,50 +1,51 @@
-import Select from "@mui/material/Select";
+import React from "react";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 
 const FontsActions = function () {
 
-    function handleChange(event) {
-        const selectedText = window.getSelection();
-        const range = selectedText.getRangeAt(0);
-        const fontValue = event.target.value;
+    function handleChange(event: SelectChangeEvent<string>) {
+      const selectedText: any = window.getSelection();
+      const range = selectedText.getRangeAt(0);
+      const fontValue = event.target.value;
 
-        // Check if the selection is within a span tag
-        let spanParent = range.commonAncestorContainer;
-        while (spanParent.nodeName !== 'SPAN' && spanParent.parentNode) {
-            spanParent = spanParent.parentNode;
-        }
+      // Check if the selection is within a span tag
+      let spanParent = range.commonAncestorContainer;
+      while (spanParent.nodeName !== "SPAN" && spanParent.parentNode) {
+        spanParent = spanParent.parentNode;
+      }
 
-        // If the selection is within a span tag, modify its font size
-        if (spanParent.nodeName === 'SPAN') {
-            spanParent.style.fontSize = `${fontValue}px`;
-        } else {
-            // If not within a span tag, create a new span
-            const span = document.createElement('span');
-            span.style.fontSize = `${fontValue}px`;
-            range.surroundContents(span);
-        }
+      // If the selection is within a span tag, modify its font size
+      if (spanParent.nodeName === "SPAN") {
+        spanParent.style.fontSize = `${fontValue}px`;
+      } else {
+        // If not within a span tag, create a new span
+        const span = document.createElement("span");
+        span.style.fontSize = `${fontValue}px`;
+        range.surroundContents(span);
+      }
     }
 
-    function handleFontFamilyChange(event) {
-        const selectedText = window.getSelection();
-        const range = selectedText.getRangeAt(0);
-        const fontValue = event.target.value;
+    function handleFontFamilyChange(event: SelectChangeEvent<string>) {
+      const selectedText: any = window.getSelection();
+      const range = selectedText.getRangeAt(0);
+      const fontValue = event.target.value;
+        console.log(fontValue);
+      // Check if the selection is within a span tag
+      let spanParent = range.commonAncestorContainer;
+      while (spanParent.nodeName !== "SPAN" && spanParent.parentNode) {
+        spanParent = spanParent.parentNode;
+      }
 
-        // Check if the selection is within a span tag
-        let spanParent = range.commonAncestorContainer;
-        while (spanParent.nodeName !== 'SPAN' && spanParent.parentNode) {
-            spanParent = spanParent.parentNode;
-        }
-
-        // If the selection is within a span tag, modify its font size
-        if (spanParent.nodeName === 'SPAN') {
-            spanParent.style.fontFamily = `${fontValue}`;
-        } else {
-            // If not within a span tag, create a new span
-            const span = document.createElement('span');
-            span.style.fontFamily = `${fontValue}`;
-            range.surroundContents(span);
-        }
+      // If the selection is within a span tag, modify its font size
+      if (spanParent.nodeName === "SPAN") {
+        spanParent.style.fontFamily = `${fontValue}`;
+      } else {
+        // If not within a span tag, create a new span
+        const span = document.createElement("span");
+        span.style.fontFamily = `${fontValue}`;
+        range.surroundContents(span);
+      }
     }
 
 
@@ -55,7 +56,7 @@ const FontsActions = function () {
                     <Select
                         defaultValue="Roboto"
                         placeholder="Font family"
-                        onChange={handleFontFamilyChange}
+                        onChange={(e) => handleFontFamilyChange(e)}
                         sx={{
                             width: 150,
                             height: 40,
@@ -70,7 +71,7 @@ const FontsActions = function () {
                 <div className="font-size-select">
                     <Select
                         defaultValue="10"
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                         placeholder="Font Size"
                         sx={{
                             width: 70,

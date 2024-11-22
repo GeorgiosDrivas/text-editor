@@ -1,13 +1,12 @@
-import React from 'react';
-import './App.css';
-import AlignAction from './components/alignTextActions';
-import FontsActions from './components/fontsActions';
-import WeightActions from './components/weightActions';
-import { handleWeight } from './utils/handleWeight';
-import { handleJustify } from './utils/handleJustify';
+import React from "react";
+import "./App.css";
+import AlignAction from "./components/alignTextActions";
+import FontsActions from "./components/fontsActions";
+import WeightActions from "./components/weightActions";
+import { handleWeight } from "./utils/handleWeight";
+import { handleJustify } from "./utils/handleJustify";
 
 function App() {
-
   return (
     <>
       <div className="container-fluid">
@@ -21,17 +20,15 @@ function App() {
         <div className="row">
           <div className="col-12">
             <div className="d-flex justify-content-between">
-              <p>
+              <div className="mb-3">
                 <FontsActions />
-              </p>
-              <p>
-                <WeightActions
-                  handleWeight={handleWeight}
-                />
-              </p>
-              <p>
+              </div>
+              <div className="mb-3">
+                <WeightActions handleWeight={handleWeight} />
+              </div>
+              <div className="mb-3">
                 <AlignAction handleJustify={handleJustify} />
-              </p>
+              </div>
             </div>
             <div
               id="textarea"

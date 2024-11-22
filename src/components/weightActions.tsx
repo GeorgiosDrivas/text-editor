@@ -1,8 +1,7 @@
-import React, { MouseEvent } from 'react';
-
+import React, { MouseEvent } from "react";
 
 interface T {
-    handleWeight: (e: MouseEvent<HTMLButtonElement>, x: string) => void
+  handleWeight: (e: MouseEvent<HTMLButtonElement>, x: string) => void;
 }
 
 const WeightActions = ({ handleWeight }: T) => {

@@ -23,6 +23,10 @@ i {
   border: 1px solid;
 }
 
+button.activeButton {
+  background-color: #80808059;
+}
+
 .font {
   font-size: 60px;
 }

@@ -8,17 +8,14 @@ const FontsActions = function () {
     const range = selectedText.getRangeAt(0);
     const fontValue = event.target.value;
 
-    // Check if the selection is within a span tag
     let spanParent = range.commonAncestorContainer;
     while (spanParent.nodeName !== "SPAN" && spanParent.parentNode) {
       spanParent = spanParent.parentNode;
     }
 
-    // If the selection is within a span tag, modify its font size
     if (spanParent.nodeName === "SPAN") {
       spanParent.style.fontSize = `${fontValue}px`;
     } else {
-      // If not within a span tag, create a new span
       const span = document.createElement("span");
       span.style.fontSize = `${fontValue}px`;
       range.surroundContents(span);
@@ -30,17 +27,14 @@ const FontsActions = function () {
     const range = selectedText.getRangeAt(0);
     const fontValue = event.target.value;
     console.log(fontValue);
-    // Check if the selection is within a span tag
     let spanParent = range.commonAncestorContainer;
     while (spanParent.nodeName !== "SPAN" && spanParent.parentNode) {
       spanParent = spanParent.parentNode;
     }
 
-    // If the selection is within a span tag, modify its font size
     if (spanParent.nodeName === "SPAN") {
       spanParent.style.fontFamily = `${fontValue}`;
     } else {
-      // If not within a span tag, create a new span
       const span = document.createElement("span");
       span.style.fontFamily = `${fontValue}`;
       range.surroundContents(span);
